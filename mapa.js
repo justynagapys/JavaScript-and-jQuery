@@ -40,4 +40,37 @@ window.onload = loadScript;                         //Wywołanie zdarzenia onloa
     streetViewControl: false,
     overviewMapControl: false
  };
+
+ styles:[                                           //Właściowść styles to tablica obiektów.
+     {
+        stylers: [                                  //Właściwość stylers przechowuje tablicę obiektów.
+            {hue: "#00ff6f"}                        //Ogólne kolory mapy.
+            {saturation: -50}                       //Ogólne nasycenie mapy.
+        ]
+     },
+     {
+         featureType: "road",                       //Modyfikacje dotyczące dróg.
+         elementType: "geometry",                   //Geometria wyświetlonego elementu (linie).
+         stylers: [
+             {lightness: 100},                      //Jasność dróg
+             {visibility: "simplified"}             //Poziom szczegółowości dróg
+         ]
+     },
+     {
+         featureType: "transit",                    //Modyfikacje dotyczące transportu publicznego.
+         elementType: "geometry",                   //Geometria wyświetlanego elementu (linie).
+         stylers:[
+             {hue: "#ff6600"},                      //Kolor dla transportu publicznego.
+             {saturation: +80}                      //Nasycenie dla transportu publicznego.
+         ]
+     },
+     {
+         featureType: "transit",                    //Modyfikacje dotyczące transportu publicznego.
+         elementType: "labels",                     //Etykiety dla wyświetlanego elementu.
+         stylers:[
+             {hue: "#ff0066"},                      //Kolor etykiety.
+             {saturation: +80}                      //Nasycenie etykiety.
+         ]
+     }
+ ]
  
