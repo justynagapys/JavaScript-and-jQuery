@@ -73,4 +73,11 @@ window.onload = loadScript;                         //Wywołanie zdarzenia onloa
          ]
      }
  ]
- 
+
+ var pinLocation = new google.maps.LatLng(40.782710, -73.965310);
+
+ var startPosition = new google.maps.Marker({       //Utworzenie nowego znacznika.
+    position: pinLocation,                          //Zdefiniowanie jego położenia.
+    map: venueMap,                                  //Wskazanie mapy.
+    icon: "img/go.png"                              //Ścieżka dostępu do obrazu, względna dla HTML.
+ });
