@@ -17,3 +17,4 @@ function loadScript(){
 
 window.onload = loadScript;                         //Wywołanie zdarzenia onload.
 
+ 
