@@ -42,5 +42,28 @@ $(function(){                           //Kiedy model DOM będzie gotowy.
 
         $('#details').text('');                             //Usunięcie zawartości trzeciej kolumny.
     });
-    
+
+    //Kliknięcie sesji powoduje wczytanie jej opisu.
+    $('#content').on('click', '#sessions li a', function(e){ //Kliknięcie sesji.
+        e.preventDefault();                                 //Nie ma przejścia na nową stronę.
+        var fragment = this.href;                           //Tytuł znajduje się w atrybucie href.
+
+        fragment = fragment.replace('#', '#');              //Dodanie spacji po znaku #.
+        $('#details').load(fragment);                       //Wczytanie opisu.
+
+        $('#sessions a.current').removeClass('current');    //Uaktualnienie elementu.
+        $(this).addClass('current');
+    });
+
+    //Kliknięcie nawigacji.
+    $('nav a').on('click', function(e){                     //Kliknięcie w elemencie <nav>.
+        e.preventDeafult();                                 //Nie ma przejścia na nową stronę.
+        var url = this.href;                                //Pobranie adresu URl do wczytania.
+
+        $('nav a.current').removeClass('current');          //Uaktualnienie klas w nawigacji.
+        $(this).addClass('current');
+
+        $('#container').remove();                           //Usunięcie starego elementu.
+        $('#content').load(url + ' #container').hide().fadeIn('slow');  //Dodanie nowego elementu.
+    });
 });
