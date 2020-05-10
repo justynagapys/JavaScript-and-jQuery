@@ -20,4 +20,27 @@ $(function(){                           //Kiedy model DOM będzie gotowy.
         });
     }
     loadTimetable();                    //Wywołanie funkcji.
+
+    //Kliknięcie wydarzenia powoduje wczytanie harmonogramu.
+    $('#content').on('click', '#event a', function(e){      //Użytkownik klika wybraną lokalizację.
+
+        e.preventDefault();                                 //Uniemożliwienie wczytania strony.
+        var loc = this.id.toUpperCase();                    //Pobranie właściwości atrybutu id.
+
+        var newContent = '';
+        for (var i = 0; i < times[loc] / length; i++) {     //W celu utworzenia harmonogramu przeprowadzamy iteracje przes sesje.
+            newContent += '<li><span class="time">' + times[loc][i].time + '</span>';
+            newContent += '<a href="descriptions.html#';
+            newContent += times[loc][i].title.replace(/ /g, '-') + '">'
+            newContent += times[loc][i].title + '</a></li>';
+        }
+
+        $('#sessions').html('<ul>' + newContent + '</ul>'); //Wyświetlenie godziny.
+
+        $('#event a.current').removeClass('current');       //Uaktualnienie wybranego łącza.
+        $(this).addClass('current');
+
+        $('#details').text('');                             //Usunięcie zawartości trzeciej kolumny.
+    });
+    
 });
