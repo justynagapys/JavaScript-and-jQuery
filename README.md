@@ -1,5 +1,5 @@
 # JavaScript-and-jQuery
-##Exercises in programming in JavaScript
+## Exercises in programming in JavaScript
 
 A repository created for the needs of documentation of accomplishments in JavaScript programming.
 
